@@ -1,3 +1,5 @@
+from re import findall
+
 class Tab:
     def __init__(self):
         self._visitedPage = list()
@@ -24,9 +26,16 @@ class Tab:
             return True
 
     def goForward(self, pageName):
-        self._visitedPage.append(pageName)
+        if not self.url_check(pageName):
+            print("Element {url} is not a URL")
+        else:
+            self._visitedPage.append(pageName)
+            print("Currently view: ",pageName)
 
     def getCurrentVisitedPage(self):
         print(self._visitedPage)
-            
+
+    def url_check(pageName):
+        url = findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', string)
+        return True if len(url) != 0 else False
         

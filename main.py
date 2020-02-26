@@ -18,7 +18,6 @@ while(active):
     if inp == 1:
         pageName = input("Enter URL: ")
         tab.goForward(pageName)
-        print("Currently view: ",pageName)
     elif inp == 2:
         active = tab.goBack()
     elif inp == 3:
